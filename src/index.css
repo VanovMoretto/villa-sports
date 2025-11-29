@@ -8,7 +8,6 @@
   }
 }
 
-/* Scroll suave para links âncora */
 html {
   scroll-behavior: smooth;
 }

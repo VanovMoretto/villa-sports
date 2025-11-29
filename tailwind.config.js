@@ -7,20 +7,30 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Definindo nossa paleta "Shadcn-like"
-        background: "#1a1a1a",       // Preto acinzentado (Global)
-        foreground: "#f5f5f5",       // Branco gelo (Texto principal)
-        
-        primary: "#800020",          // Bordô (Marca)
-        "primary-foreground": "#ffffff", // Texto dentro do botão primary
-        
-        header: "#242424",           // Fundo do Header
-        
-        muted: "#a1a1aa",            // Cinza para textos secundários
+        background: "#1a1a1a",
+        foreground: "#f5f5f5",
+        primary: "#800020",
+        "primary-foreground": "#ffffff",
+        header: "#242424",
+        muted: "#a1a1aa",
       },
       fontFamily: {
         sans: ['system-ui', 'sans-serif'],
       },
+      keyframes: {
+        slideInRight: {
+          '0%': { transform: 'translateX(100%)', opacity: '0' },
+          '100%': { transform: 'translateX(0)', opacity: '1' },
+        },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        }
+      },
+      animation: {
+        slideInRight: 'slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards', 
+        fadeIn: 'fadeIn 0.3s ease-out forwards',
+      }
     },
   },
   plugins: [],

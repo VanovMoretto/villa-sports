@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Menu, X, ChevronRight, LogIn } from "lucide-react";
+import logoImg from "../assets/logo.png";
+
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -14,13 +16,13 @@ const Header = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-header shadow-md h-20 px-6 md:px-12 flex items-center justify-between">
-      <div className="flex items-center z-50">
-        <Link
-          to="/"
-          onClick={closeMenu}
-          className="text-2xl font-extrabold text-primary uppercase tracking-wide whitespace-nowrap hover:opacity-90 transition-opacity"
-        >
-          Villa Sports
+      <div className="flex items-center">
+        <Link to="/" onClick={closeMenu} className="block hover:opacity-90 transition-opacity">
+          <img 
+            src={logoImg} 
+            alt="Villa Sports" 
+            className="h-10 w-auto object-contain" 
+          />
         </Link>
       </div>
 
@@ -49,7 +51,7 @@ const Header = () => {
       </nav>
 
       <button
-        className="md:hidden text-foreground p-2 -mr-2 relative z-50 focus:outline-none"
+        className="md:hidden text-foreground p-2 -mr-2 relative z-[70] focus:outline-none"
         onClick={toggleMenu}
         aria-label="Menu"
       >
@@ -73,7 +75,7 @@ const Header = () => {
         </div>
       </button>
       <div
-        className={`md:hidden fixed inset-0 z-40 transition-all duration-500 ${
+        className={`md:hidden fixed inset-0 z-[60] transition-all duration-500 ${
           isMobileMenuOpen ? "visible" : "invisible delay-300"
         }`}
       >
@@ -83,6 +85,7 @@ const Header = () => {
           }`}
           onClick={closeMenu}
         ></div>
+
         <div
           className={`absolute right-0 top-0 h-full w-[85%] max-w-sm bg-header shadow-2xl flex flex-col transition-transform duration-500 cubic-bezier(0.19, 1, 0.22, 1) ${
             isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
@@ -93,6 +96,7 @@ const Header = () => {
               Menu
             </span>
           </div>
+
           <div className="flex-1 overflow-y-auto py-8 px-6 flex flex-col gap-6">
             <MobileNavLink to="/" label="Home" onClick={closeMenu} />
             <MobileNavLink
@@ -117,6 +121,7 @@ const Header = () => {
               onClick={closeMenu}
             />
           </div>
+
           <div className="p-6 border-t border-white/10 bg-black/20">
             <div className="flex flex-col gap-3">
               <Link
@@ -142,14 +147,16 @@ const Header = () => {
     </header>
   );
 };
+
 const NavLink = ({ to, label }: { to: string; label: string }) => (
   <Link
     to={to}
-    className="text-sm font-bold text-zinc-300 hover:text-primary transition-colors tracking-wide uppercase"
+    className="text-sm font-bold text-foreground/80 hover:text-primary transition-colors tracking-wide uppercase"
   >
     {label}
   </Link>
 );
+
 const MobileNavLink = ({
   to,
   label,
@@ -162,7 +169,7 @@ const MobileNavLink = ({
   <Link
     to={to}
     onClick={onClick}
-    className="group flex items-center justify-between text-2xl font-bold text-white hover:text-primary transition-colors"
+    className="group flex items-center justify-between text-2xl font-bold text-foreground hover:text-primary transition-colors"
   >
     {label}
     <ChevronRight

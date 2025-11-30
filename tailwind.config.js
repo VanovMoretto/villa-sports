@@ -8,14 +8,16 @@ export default {
     extend: {
       colors: {
         background: "#1a1a1a",
-        foreground: "#f5f5f5",
+        foreground: "#E6DCC3", 
+        cream: "#E6DCC3",
+        
         primary: "#800020",
         "primary-foreground": "#ffffff",
         header: "#242424",
         muted: "#a1a1aa",
       },
       fontFamily: {
-        sans: ['system-ui', 'sans-serif'],
+        sans: ['Panchang', 'system-ui', 'sans-serif'],
       },
       keyframes: {
         slideInRight: {
@@ -28,7 +30,7 @@ export default {
         }
       },
       animation: {
-        slideInRight: 'slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards', 
+        slideInRight: 'slideInRight 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
         fadeIn: 'fadeIn 0.3s ease-out forwards',
       }
     },
